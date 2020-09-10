@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".actifity.AboutActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/foto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/capture" />
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foto"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="FEBRI ZUMMIATI"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/nobp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nama"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="1701081002"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nobp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/gmail" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="febrizummiati99@gmail.com"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:fontFamily="@font/quicksand_semi_bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_ig"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ig" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="febrizummiati"
+                android:textColor="@android:color/black"
+                android:textSize="15dp"
+                android:fontFamily="@font/quicksand_semi_bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_fb"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_ig"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/fb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Febri Zummiati"
+                android:textColor="@android:color/black"
+                android:textSize="15dp"
+                android:fontFamily="@font/quicksand_semi_bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_company"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_fb"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/company" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Politeknik Negeri Padang"
+                android:textColor="@android:color/black"
+                android:textSize="15dp"
+                android:fontFamily="@font/quicksand_semi_bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_wa"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_company"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/wa" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="+62823 8500 5138"
+                android:textColor="@android:color/black"
+                android:textSize="15dp"
+                android:fontFamily="@font/quicksand_semi_bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

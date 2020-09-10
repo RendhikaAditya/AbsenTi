@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actifity.RegisterMhsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/logo_ti"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ti"
+        app:layout_constraintBottom_toTopOf="@+id/txtRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Form Register"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:fontFamily="@font/quicksand_bold"
+        app:layout_constraintBottom_toTopOf="@+id/editNim"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_ti" />
+
+
+    <EditText
+        android:id="@+id/editNim"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="NIM"
+        android:maxLines="1"
+        android:inputType="text"
+        android:drawableLeft="@drawable/ic_account"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:fontFamily="@font/quicksand_semi_bold"
+        app:layout_constraintBottom_toTopOf="@+id/editNama"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegister" />
+
+    <EditText
+        android:id="@+id/editNama"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Name"
+        android:drawableLeft="@drawable/ic_account"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:inputType="text"
+        android:fontFamily="@font/quicksand_semi_bold"
+        app:layout_constraintBottom_toTopOf="@+id/editEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNim" />
+
+
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="250dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Email"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:inputType="text"
+        android:drawableLeft="@drawable/ic_email"
+        android:fontFamily="@font/quicksand_semi_bold"
+        app:layout_constraintBottom_toTopOf="@+id/editPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNama" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Password"
+        android:drawableLeft="@drawable/ic_lock"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:inputType="text"
+        android:fontFamily="@font/quicksand_semi_bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorPrimary"
+        android:hint="Sign Up"
+        android:textColorHint="#fff"
+        android:textSize="20sp"
+        android:fontFamily="@font/quicksand_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

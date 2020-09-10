@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actifity.GenerateActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/logo_ti"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ti"
+        app:layout_constraintBottom_toTopOf="@+id/txtRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtGenerate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Generate QR Code"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/editMk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_ti" />
+
+
+    <EditText
+        android:id="@+id/editMk"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:hint="Mata Kuliah"
+        android:maxLines="1"
+        android:inputType="text"
+        android:drawableLeft="@drawable/ic_assignment"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/editDosen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenerate" />
+
+    <EditText
+        android:id="@+id/editDosen"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:hint="Dosen"
+        android:maxLines="1"
+        android:inputType="text"
+        android:drawableLeft="@drawable/ic_account"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/editKelas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMk" />
+
+    <EditText
+        android:id="@+id/editKelas"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:hint="Kelas"
+        android:drawableLeft="@drawable/ic_class"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/editRuang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editDosen" />
+
+
+    <EditText
+        android:id="@+id/editRuang"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:hint="Ruangan"
+        android:drawableLeft="@drawable/ic_room"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/editJam0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editKelas" />
+
+    <EditText
+        android:id="@+id/editJam0"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:hint="Jam Mulai"
+        android:drawableLeft="@drawable/ic_time"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/editJam1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editRuang" />
+
+    <EditText
+        android:id="@+id/editJam1"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:hint="Jam Selesai"
+        android:drawableLeft="@drawable/ic_time"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnGenerate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editJam0" />
+
+    <Button
+        android:id="@+id/btnGenerate"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/quicksand_bold"
+        android:hint="Generate"
+        android:textColorHint="#fff"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editJam1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgQR"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnGenerate"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".actifity.ResultScanActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scanSukses">
 
     <ImageView
         android:id="@+id/logo_ti"
@@ -190,4 +194,32 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scanGagal"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_marginTop="300dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scane Gagal!!!"
+            android:textSize="30dp"
+            android:textColor="#000"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Scane ulang"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary"
+            android:textColor="#fff"
+            android:id="@+id/ulang"/>
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

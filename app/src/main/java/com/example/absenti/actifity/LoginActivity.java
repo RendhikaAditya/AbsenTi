@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity{
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                 finish();
                             }else{
-                                Toast.makeText(mContext, "" + response.getString("response"), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Cek Username Dan Password", Toast.LENGTH_SHORT).show();
                                 loading.dismissLoading();
                             }
                         } catch (JSONException e) {

@@ -2,6 +2,7 @@ package com.example.absenti.actifity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -55,6 +56,7 @@ public class ReportActivity extends AppCompatActivity {
                         if (response.length()>0){
                             for (int i = 0; i< response.length(); i++) {
                                 try {
+                                    Log.d("syakses", "sukses"+response);
                                     JSONObject data = response.getJSONObject(i);
                                     kelas.add(new ModelKelas(
                                             data.getString("id"),
@@ -77,7 +79,7 @@ public class ReportActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-
+                        Log.d("error", "error : "+anError);
                     }
                 });
     }

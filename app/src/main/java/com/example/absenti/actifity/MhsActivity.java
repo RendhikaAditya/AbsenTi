@@ -2,6 +2,7 @@ package com.example.absenti.actifity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -90,8 +91,10 @@ public class MhsActivity extends AppCompatActivity implements ZXingScannerView.R
     public void handleResult(Result rawResult) {
         Intent intent = new Intent(MhsActivity.this, ResultScanActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("IDSCN", rawResult.getText());
+        finish();
         startActivity(intent);
         scannerView.resumeCameraPreview(this);
+
     }
 
     @Override

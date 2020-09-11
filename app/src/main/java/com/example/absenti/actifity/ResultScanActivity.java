@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -32,6 +36,9 @@ public class ResultScanActivity extends AppCompatActivity {
     Context context;
     LoadingDialog loadingDialog;
     SharedPrefManager sharedPrefManager;
+    LinearLayout layoutGagal;
+    ConstraintLayout layoutSukses;
+    Button btnUlang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,18 @@ public class ResultScanActivity extends AppCompatActivity {
         txtJam1 = findViewById(R.id.time1);
         txtDosen = findViewById(R.id.dosen);
         txtRuang = findViewById(R.id.ruang);
+        layoutGagal = findViewById(R.id.scanGagal);
+        layoutSukses = findViewById(R.id.scanSukses);
+        btnUlang = findViewById(R.id.ulang);
+
+        btnUlang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResultScanActivity.this, MhsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         loadingDialog = new LoadingDialog(context);
 
@@ -53,6 +72,13 @@ public class ResultScanActivity extends AppCompatActivity {
 //        sharedPrefManager = new SharedPrefManager(this);
 //        txtJam0.setText(sharedPrefManager.getIdUser());
         fetchData(idsc);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ResultScanActivity.this, MhsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     private void fetchData(final String idscn) {
@@ -68,22 +94,32 @@ public class ResultScanActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            Log.d("sikses", "suksen id : "+idscn);
-                            txtMatkul.setText(response.getString("matkul"));
-                            txtTgl.setText(response.getString("tgl"));
-                            txtJam0.setText(response.getString("jamM"));
-                            txtJam1.setText(response.getString("jamS"));
-                            txtDosen.setText(response.getString("dosen"));
-                            txtRuang.setText(response.getString("ruangan"));
+//                            loadingDialog.dismissLoading();
+                            if (response.getString("code").equalsIgnoreCase("1")){
+                                layoutSukses.setVisibility(View.VISIBLE);
+                                layoutGagal.setVisibility(View.GONE);
+                                Log.d("sikses", "suksen id : "+ response);
+                                txtMatkul.setText(response.getString("matkul"));
+                                txtTgl.setText(response.getString("tgl"));
+                                txtJam0.setText(response.getString("jamM"));
+                                txtJam1.setText(response.getString("jamS"));
+                                txtDosen.setText(response.getString("dosen"));
+                                txtRuang.setText(response.getString("ruangan"));
+                            }else {
+                                layoutSukses.setVisibility(View.GONE);
+                                layoutGagal.setVisibility(View.VISIBLE);
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+//                            loadingDialog.dismissLoading();
                         }
                     }
 
                     @Override
                     public void onError(ANError anError) {
                         Log.d("eror", "eror:"+anError);
+//                        loadingDialog.dismissLoading();
                     }
                 });
 

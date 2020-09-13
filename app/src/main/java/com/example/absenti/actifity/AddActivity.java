@@ -11,29 +11,44 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.example.absenti.R;
+import com.example.absenti.adapter.AdapterStat;
+import com.example.absenti.model.ModelStatus;
 import com.example.absenti.server.UtilsApi;
 import com.example.absenti.util.LoadingDialog;
+import com.example.absenti.util.PreferencesKat;
+import com.example.absenti.util.SharedPrefManager;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 
 public class AddActivity extends AppCompatActivity {
     EditText nimMhs;
-    EditText statusMhs;
     Button btnAdd;
 
     LoadingDialog loading;
     Context mContext;
+
+    SharedPrefManager sharedPrefManager;
+    PreferencesKat preferencesKat;
+
+    RecyclerView rv_stat;
+    List<ModelStatus> status;
 
 
     @Override
@@ -43,7 +58,6 @@ public class AddActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Add Student");
 
         nimMhs = findViewById(R.id.editNim);
-        statusMhs = findViewById(R.id.editStatus);
         btnAdd = findViewById(R.id.btnAdd);
 
         mContext = this;
@@ -55,26 +69,65 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (TextUtils.isEmpty(nimMhs.getText().toString())) {
                     nimMhs.setError("NIM is still empty!");
-                } else if (TextUtils.isEmpty(statusMhs.getText().toString())) {
-                    statusMhs.setError("attendance status is still empty!");
                 } else {
                     requestAdd();
                 }
             }
         });
+
+        rv_stat=findViewById(R.id.rvStat);
+        rv_stat.setHasFixedSize(true);
+        rv_stat.setLayoutManager(new GridLayoutManager(this,2 ));
+        status = new ArrayList<>();
+        getDataStat();
+
+    }
+
+    private void getDataStat() {
+        AndroidNetworking.get(UtilsApi.BASE_URL+"get_status.php")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONArray(new JSONArrayRequestListener() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                        for (int i=0; i<response.length(); i++){
+
+                                JSONObject data = response.getJSONObject(i);
+                                status.add(new ModelStatus(
+                                        data.getString("id"),
+                                        data.getString("nama")
+                                ));
+                            AdapterStat adapterStat = new AdapterStat(status);
+                            rv_stat.setAdapter(adapterStat);
+                            adapterStat.notifyDataSetChanged();
+
+                        }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });
     }
 
     private void requestAdd() {
+        sharedPrefManager = new SharedPrefManager(this);
         AndroidNetworking.post(UtilsApi.BASE_URL + "add_student.php")
+                .addBodyParameter("iddsn", sharedPrefManager.getIdUser())
                 .addBodyParameter("nim", nimMhs.getText().toString())
-                .addBodyParameter("status", statusMhs.getText().toString())
+                .addBodyParameter("status", PreferencesKat.getId_kategori(getBaseContext()))
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.i("debug", "onResponse : Success");
-                        loading.dismissLoading();
+//                        loading.dismissLoading();
                         try {
                             Toast.makeText(mContext, "SUCCESSFUL", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(mContext, LoginActivity.class));

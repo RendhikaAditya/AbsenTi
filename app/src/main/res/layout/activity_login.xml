@@ -49,13 +49,24 @@
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editPassword"
+        app:layout_constraintBottom_toTopOf="@+id/relaaa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
 
-    <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/relaaa"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editEmail">
+
+        <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editPassword"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -63,16 +74,12 @@
         android:fontFamily="@font/quicksand_semi_bold"
         android:hint="Password"
         android:maxLines="1"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:drawableLeft="@drawable/ic_lock"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
-
+        android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="250dp"
@@ -85,7 +92,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/relaaa" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

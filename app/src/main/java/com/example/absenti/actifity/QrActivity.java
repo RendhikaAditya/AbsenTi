@@ -26,7 +26,7 @@ public class QrActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr);
-        getSupportActionBar().setTitle("QR Code");
+//        getSupportActionBar().hide();
 
         Intent intent = new Intent(getIntent());
         String idqr = intent.getStringExtra("IDQR");

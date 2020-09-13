@@ -3,10 +3,12 @@ package com.example.absenti.actifity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +30,7 @@ public class LoginActivity extends AppCompatActivity{
     EditText edtEmail;
     EditText edtPassword;
     Button btnLogin;
+    ImageView show;
 
     LoadingDialog loading;
     Context mContext;

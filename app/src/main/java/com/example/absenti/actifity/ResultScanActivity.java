@@ -44,7 +44,7 @@ public class ResultScanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_scan);
-        getSupportActionBar().setTitle("Detail Scanning");
+        getSupportActionBar().hide();
         AndroidNetworking.initialize(this);
         txtMatkul = findViewById(R.id.matkul);
         txtTgl = findViewById(R.id.time);

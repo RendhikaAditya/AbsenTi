@@ -54,19 +54,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtAdd" />
 
-    <EditText
-        android:id="@+id/editStatus"
-        android:layout_width="250dp"
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Status Mahasiswa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editNim" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvStat"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/quicksand_semi_bold"
-        android:hint="Attendance Status"
-        android:drawableLeft="@drawable/ic_assignment"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"
-        android:textSize="16sp"
-        android:inputType="text"
-        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNim" />
@@ -83,7 +84,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editStatus" />
+        app:layout_constraintTop_toBottomOf="@+id/rvStat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

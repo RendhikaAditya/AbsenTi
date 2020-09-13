@@ -39,7 +39,7 @@ public class GenerateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate);
-        getSupportActionBar().setTitle("Generate QR Code");
+//        getSupportActionBar().setTitle("Generate QR Code");
 
         btnGenerate = findViewById(R.id.btnGenerate);
         edtMatkul = findViewById(R.id.editMk);

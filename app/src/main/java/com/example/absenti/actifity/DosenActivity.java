@@ -1,5 +1,7 @@
 package com.example.absenti.actifity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -39,17 +41,24 @@ public class DosenActivity extends AppCompatActivity {
             Intent setIntent = new Intent(DosenActivity.this, AboutActivity.class);
             startActivity(setIntent);
         }else if (item.getItemId() == R.id.action_logout) {
-//            sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN_DOSEN, false);
-            sharedPrefManager.setDsnLoginStatus(false);
-            sharedPrefManager.setMhsLoginStatus(false);
-            sharedPrefManager.setIdUser("");
-//            sharedPrefManager.setIdUser("");
-            Intent setIntent = new Intent(DosenActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(setIntent);
-            finish();
-//            startActivity(new Intent(this, MainActivity.class)
-//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
-//            finish();
+            new AlertDialog.Builder(this)
+                    .setTitle("Perhatian")
+                    .setMessage("Apakah anda yakin akan Logout?")
+                    .setCancelable(false)
+                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            sharedPrefManager.setDsnLoginStatus(false);
+                            sharedPrefManager.setMhsLoginStatus(false);
+                            sharedPrefManager.setIdUser("");
+
+                            Intent setIntent = new Intent(DosenActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(setIntent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("Tidak", null)
+                    .show();
+
         }
         return super.onOptionsItemSelected(item);
     }
